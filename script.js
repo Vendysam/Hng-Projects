@@ -1,35 +1,32 @@
 const timeElement = document.querySelector(".time");
+
 const dateElement = document.querySelector(".date");
 
 /**
  *  #param {Date} date
  **/
  
+const date = new Date ( );
+const day = date.getDay( );
 
-function formatTime(date){
-    const hours12 = date.getHours( ) % 12 || 12
-    const minutes = date.getMinutes ( );
-    const isAM = date.getHours < 12
+const formatDate = ( ) =>{
+    return day ==1
+    ?  "Monday"
+    : day ==2
+    ?  "Tuesday"
+    : day == 3
+    ?  "Wednesday"
+    : day == 4
+    ?  "Thurday"
+    : day ==5
+    ?  "Friday"
+    : day == 6
+    ?  "Saturday"
+    : "Sunday";
+}; 
 
+dateElement.textContent = formatDate( );
+timeElement.textContent =Date.now( );
 
-    return `${hours12.toString( ).padStart(2, "0")}:${minutes.toString( ).padStart(2, "0")} ${isAM ? "AM" : "PM"}`;
-}
-
-
-function formatDate(date){
-      const DAYS  = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-    const MONTHS = ["January", "Febuary" , "March", "April", "May","June", "July", "August", "September", "October", "November","December",];
-
-
-    return `${DAYS[date.getDay( )]} , ${MONTHS[date.getMonth( )]} ${date.getDate( )} ${date.getFullYear( )}`
-}
-
-
-setInterval(( ) =>{
-    const now = new Date( );
-
-    timeElement.textContent = formatTime(now);
-    dateElement.textContent = formatDate(now);
-
-}, 200);
-
+console.log(formatDate);
+console.log((Date.now));
