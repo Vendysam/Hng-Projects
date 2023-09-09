@@ -1,32 +1,14 @@
-const timeElement = document.querySelector(".time");
+function getCurrentUTCTimeInMilliseconds() {
+    const currentTimeMilliseconds = new Date().getTime();
+    return currentTimeMilliseconds;
+}
 
-const dateElement = document.querySelector(".date");
+function updateDisplay() {
+    const timeElement = document.getElementById('time');
+    const currentTimeMilliseconds = getCurrentUTCTimeInMilliseconds();
+    timeElement.textContent = `Current UTC Time (Milliseconds): ${currentTimeMilliseconds}`;
+}
 
-/**
- *  #param {Date} date
- **/
- 
-const date = new Date ( );
-const day = date.getDay( );
-
-const formatDate = ( ) =>{
-    return day == 1
-    ?  "Monday"
-    : day == 2
-    ?  "Tuesday"
-    : day == 3
-    ?  "Wednesday"
-    : day == 4
-    ?  "Thurday"
-    : day ==5
-    ?  "Friday"
-    : day == 6
-    ?  "Saturday"
-    : "Sunday";
-}; 
-
-dateElement.textContent = formatDate( );
-timeElement.textContent = Date.now( );
-
-console.log(formatDate);
-console.log((Date.now));
+// Update the display initially and every second
+updateDisplay();
+setInterval(updateDisplay, 1000);
