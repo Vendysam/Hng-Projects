@@ -10,9 +10,9 @@ const date = new Date ( );
 const day = date.getDay( );
 
 const formatDate = ( ) =>{
-    return day ==1
+    return day == 1
     ?  "Monday"
-    : day ==2
+    : day == 2
     ?  "Tuesday"
     : day == 3
     ?  "Wednesday"
@@ -26,7 +26,7 @@ const formatDate = ( ) =>{
 }; 
 
 dateElement.textContent = formatDate( );
-timeElement.textContent =Date.now( );
+timeElement.textContent = Date.now( );
 
 console.log(formatDate);
 console.log((Date.now));
