@@ -6,7 +6,7 @@ function getCurrentUTCTimeInMilliseconds() {
 function updateDisplay() {
     const timeElement = document.getElementById('time');
     const currentTimeMilliseconds = getCurrentUTCTimeInMilliseconds();
-    timeElement.textContent = `Current UTC Time (Milliseconds): ${currentTimeMilliseconds}`;
+    timeElement.textContent = ` ${currentTimeMilliseconds}`;
 }
 
 // Update the display initially and every second
